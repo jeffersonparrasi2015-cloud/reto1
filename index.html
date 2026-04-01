@@ -100,7 +100,7 @@ function enviarFeedback() {
     return;
   }
 
-  const data = { nombre, producto, comentario }; // ✅ FALTABA ESTO
+  const data = { nombre, producto, comentario }; 
 
   loader.style.display = "block";
   mensaje.innerText = "";
@@ -113,7 +113,7 @@ function enviarFeedback() {
     },
     body: JSON.stringify(data)
   })
-  .then(() => { // ⚠️ NO usamos res.json()
+  .then(() => { 
     loader.style.display = "none";
     mensaje.innerText = "✅ ¡Feedback enviado!";
     mensaje.style.color = "green";
