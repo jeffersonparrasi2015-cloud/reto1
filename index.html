@@ -100,20 +100,20 @@ function enviarFeedback() {
     return;
   }
 
-  const data = { nombre, producto, comentario }; 
+  const data = { nombre, producto, comentario };
 
   loader.style.display = "block";
   mensaje.innerText = "";
 
-  fetch("https://script.google.com/macros/s/AKfycbzLVgGqdOKR5IN0NAWvOTxPY11LgR4mSDqZJZeP2uIyT_Ske2W3VzixQujRGv3bQ93r5w/exec", {
+  fetch("http://localhost:3000/enviar-feedback", { 
     method: "POST",
-    mode: "no-cors",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
   })
-  .then(() => { 
+  .then(res => res.json())
+  .then(() => {
     loader.style.display = "none";
     mensaje.innerText = "✅ ¡Feedback enviado!";
     mensaje.style.color = "green";
